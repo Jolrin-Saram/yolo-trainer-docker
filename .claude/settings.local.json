@@ -16,7 +16,9 @@
       "Bash(gh auth:*)",
       "Bash(curl -X POST https://api.github.com/user/repos )",
       "Bash(git remote add:*)",
-      "Bash(git branch:*)"
+      "Bash(git branch:*)",
+      "Bash(docker build:*)",
+      "Bash(.)"
     ],
     "deny": [],
     "ask": []

@@ -33,10 +33,15 @@ RUN pip3 install --upgrade pip
 # Clone the repository from GitHub
 RUN git clone --depth 1 --branch ${REPO_BRANCH} ${REPO_URL} /tmp/repo && \
     cp -r /tmp/repo/* /app/ && \
+    cp -r /tmp/repo/.* /app/ 2>/dev/null || true && \
     rm -rf /tmp/repo
 
-# Install Python dependencies
-RUN pip3 install --no-cache-dir -r requirements.txt
+# Install Python dependencies (use simplified requirements for Docker)
+RUN if [ -f requirements-docker.txt ]; then \
+        pip3 install --no-cache-dir -r requirements-docker.txt; \
+    else \
+        pip3 install --no-cache-dir -r requirements.txt; \
+    fi
 
 # Create necessary directories
 RUN mkdir -p /app/data \
