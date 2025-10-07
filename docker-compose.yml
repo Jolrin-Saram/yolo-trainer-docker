@@ -3,7 +3,7 @@ version: '3.8'
 services:
   yolo-trainer:
     # Pull from Docker Hub instead of building locally
-    image: ${DOCKER_IMAGE:-yourusername/yolo-auto-trainer:latest}
+    image: ${DOCKER_IMAGE:-jolrinsaram/yolo-trainer-docker:latest}
     container_name: yolo-trainer
 
     # GPU support - requires nvidia-docker2
@@ -61,7 +61,7 @@ services:
   # Optional: Headless training service (no GUI)
   yolo-trainer-headless:
     # Pull from Docker Hub instead of building locally
-    image: ${DOCKER_IMAGE:-yourusername/yolo-auto-trainer:latest}
+    image: ${DOCKER_IMAGE:-jolrinsaram/yolo-trainer-docker:latest}
     container_name: yolo-trainer-headless
     profiles: ["headless"]
 

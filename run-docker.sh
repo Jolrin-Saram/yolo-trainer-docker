@@ -7,7 +7,7 @@
 set -e
 
 # 설정
-IMAGE_NAME=${DOCKER_IMAGE:-"yourusername/yolo-auto-trainer:latest"}
+IMAGE_NAME=${DOCKER_IMAGE:-"jolrinsaram/yolo-trainer-docker:latest"}
 MODE=${1:-"gui"}
 
 # 색상

@@ -10,7 +10,13 @@
       "Bash(git commit -m \"$(cat <<''EOF''\n🔧 데이터셋 준비 프로세스 개선\n\n## 주요 개선사항\n\n### ✨ 새로운 기능\n- **중복 파일 건너뛰기**: 재실행 시 15배 빠른 속도\n- **사용자 지정 저장 폴더**: 준비된 데이터셋 저장 위치 선택 가능\n- **향상된 진행 상황 표시**: 6단계로 세분화된 진행 과정\n- **더 많은 이미지 형식 지원**: .tif, .tiff, .webp 추가\n\n### 🔧 수정된 파일\n- `prepare_dataset.py`: output_dir 파라미터, 중복 건너뛰기, 상세 로깅\n- `run_training_ui.py`: Prepared Dataset Dir 필드 추가\n- `config.json`: 경로 수정 (D:/download/train → D:/train)\n\n### 📚 새로운 문서\n- `DATASET_PREP_IMPROVEMENTS.md`: 개선사항 상세 문서\n\n## 성능 개선\n- 첫 실행: ~15초 (모든 파일 복사)\n- 재실행: ~1초 (중복 건너뛰기) ⚡ 15배 향상\n\n## 로그 출력 예시\n```\n✓ File processing complete:\n  - Copied: 0 files\n  - Skipped (already exist): 8470 files\n```\n\n🎉 Generated with Claude Code\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(git merge:*)",
       "Bash(chmod:*)",
-      "Bash(git init:*)"
+      "Bash(git init:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
+      "Bash(gh auth:*)",
+      "Bash(curl -X POST https://api.github.com/user/repos )",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)"
     ],
     "deny": [],
     "ask": []

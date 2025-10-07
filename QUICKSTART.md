@@ -8,7 +8,7 @@
 docker run --gpus all -it --rm \
   -v $(pwd)/data:/app/data \
   -v $(pwd)/trained_models:/app/trained_models \
-  yourusername/yolo-auto-trainer:latest
+  jolrinsaram/yolo-trainer-docker:latest
 ```
 
 ### 2️⃣ CPU 환경에서 실행
@@ -17,7 +17,7 @@ docker run --gpus all -it --rm \
 docker run -it --rm \
   -v $(pwd)/data:/app/data \
   -v $(pwd)/trained_models:/app/trained_models \
-  yourusername/yolo-auto-trainer:latest
+  jolrinsaram/yolo-trainer-docker:latest
 ```
 
 ---
@@ -88,7 +88,7 @@ docker run --gpus all -it --rm \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v $(pwd)/data:/app/data \
   -v $(pwd)/trained_models:/app/trained_models \
-  yourusername/yolo-auto-trainer:latest
+  jolrinsaram/yolo-trainer-docker:latest
 ```
 
 **GUI가 열리면:**
@@ -107,7 +107,7 @@ docker run --gpus all -it --rm \
 docker run --gpus all -it --rm \
   -v $(pwd)/data:/app/data \
   -v $(pwd)/trained_models:/app/trained_models \
-  yourusername/yolo-auto-trainer:latest \
+  jolrinsaram/yolo-trainer-docker:latest \
   bash -c "
     python3 prepare_dataset.py /app/data /app/data/classes.txt 20 && \
     python3 process_and_train.py \
@@ -133,7 +133,7 @@ mkdir unlabeled
 docker run --gpus all -it --rm \
   -v $(pwd)/unlabeled:/app/unlabeled \
   -v $(pwd)/trained_models:/app/trained_models \
-  yourusername/yolo-auto-trainer:latest \
+  jolrinsaram/yolo-trainer-docker:latest \
   python3 auto_labeler.py \
     /app/unlabeled \
     /app/trained_models/best.pt \
@@ -151,7 +151,7 @@ docker run --gpus all -it --rm \
 # 대화형 쉘 실행
 docker run --gpus all -it --rm \
   -v $(pwd):/workspace \
-  yourusername/yolo-auto-trainer:latest \
+  jolrinsaram/yolo-trainer-docker:latest \
   bash
 
 # 컨테이너 내부에서
@@ -170,7 +170,7 @@ exit
 docker run --gpus all -d --name yolo-trainer \
   -v $(pwd)/data:/app/data \
   -v $(pwd)/trained_models:/app/trained_models \
-  yourusername/yolo-auto-trainer:latest \
+  jolrinsaram/yolo-trainer-docker:latest \
   bash -c "
     python3 prepare_dataset.py /app/data /app/data/classes.txt 20 && \
     python3 process_and_train.py \
@@ -250,7 +250,7 @@ cat
 
 ### docker-compose.yml 다운로드
 ```bash
-curl -O https://raw.githubusercontent.com/yourusername/yolo-auto-trainer/main/docker-compose.yml
+curl -O https://raw.githubusercontent.com/jolrinsaram/yolo-trainer-docker/main/docker-compose.yml
 ```
 
 ### 실행
@@ -294,7 +294,7 @@ echo -e "class1\nclass2\nclass3" > data/classes.txt
 docker run --gpus all -it --rm \
   -v $(pwd)/data:/app/data \
   -v $(pwd)/trained_models:/app/trained_models \
-  yourusername/yolo-auto-trainer:latest \
+  jolrinsaram/yolo-trainer-docker:latest \
   bash -c "
     python3 prepare_dataset.py /app/data /app/data/classes.txt 20 && \
     python3 process_and_train.py \
@@ -317,7 +317,7 @@ ls -lh trained_models/
 docker run --gpus all -it --rm \
   -v $(pwd)/new_images:/app/new_images \
   -v $(pwd)/trained_models:/app/trained_models \
-  yourusername/yolo-auto-trainer:latest \
+  jolrinsaram/yolo-trainer-docker:latest \
   python3 auto_labeler.py \
     /app/new_images \
     /app/trained_models/best.pt \
@@ -361,7 +361,7 @@ docker run --shm-size=8g ...
 docker run --gpus all -it --rm `
   -v ${PWD}/data:/app/data `
   -v ${PWD}/trained_models:/app/trained_models `
-  yourusername/yolo-auto-trainer:latest
+  jolrinsaram/yolo-trainer-docker:latest
 ```
 
 ---
@@ -393,7 +393,7 @@ docker run -it --rm \
 - [전체 Docker 가이드](DOCKER_GUIDE.md)
 - [멀티 GPU 설정](README_MULTIGPU.md)
 - [데이터셋 준비](DATASET_PREP_IMPROVEMENTS.md)
-- [GitHub 저장소](https://github.com/yourusername/yolo-auto-trainer)
+- [GitHub 저장소](https://github.com/jolrinsaram/yolo-trainer-docker)
 
 ---
 
@@ -402,5 +402,5 @@ docker run -it --rm \
 단 한 줄의 명령으로 강력한 YOLO 학습 환경을 시작하세요.
 
 ```bash
-docker run --gpus all -it yourusername/yolo-auto-trainer:latest
+docker run --gpus all -it jolrinsaram/yolo-trainer-docker:latest
 ```

@@ -168,10 +168,10 @@ docker-compose up -d
 ### 커스텀 빌드 (GitHub에서 직접)
 ```bash
 docker build \
-  --build-arg REPO_URL=https://github.com/yourusername/yolo-auto-trainer.git \
+  --build-arg REPO_URL=https://github.com/jolrinsaram/yolo-trainer-docker.git \
   --build-arg REPO_BRANCH=main \
   -t my-yolo-trainer:custom \
-  - < <(curl -s https://raw.githubusercontent.com/yourusername/yolo-auto-trainer/main/Dockerfile)
+  - < <(curl -s https://raw.githubusercontent.com/jolrinsaram/yolo-trainer-docker/main/Dockerfile)
 ```
 
 ## 📊 성능
@@ -246,9 +246,9 @@ docker run --gpus all -d username/yolo-auto-trainer:latest
 
 ## 📚 추가 문서
 
-- [전체 사용 가이드](https://github.com/yourusername/yolo-auto-trainer/blob/main/DOCKER_GUIDE.md)
-- [멀티 GPU 설정](https://github.com/yourusername/yolo-auto-trainer/blob/main/README_MULTIGPU.md)
-- [데이터셋 준비](https://github.com/yourusername/yolo-auto-trainer/blob/main/DATASET_PREP_IMPROVEMENTS.md)
+- [전체 사용 가이드](https://github.com/jolrinsaram/yolo-trainer-docker/blob/main/DOCKER_GUIDE.md)
+- [멀티 GPU 설정](https://github.com/jolrinsaram/yolo-trainer-docker/blob/main/README_MULTIGPU.md)
+- [데이터셋 준비](https://github.com/jolrinsaram/yolo-trainer-docker/blob/main/DATASET_PREP_IMPROVEMENTS.md)
 
 ## 🤝 기여
 
@@ -260,9 +260,9 @@ MIT License
 
 ## 🔗 링크
 
-- [GitHub Repository](https://github.com/yourusername/yolo-auto-trainer)
+- [GitHub Repository](https://github.com/jolrinsaram/yolo-trainer-docker)
 - [Docker Hub](https://hub.docker.com/r/username/yolo-auto-trainer)
-- [이슈 트래커](https://github.com/yourusername/yolo-auto-trainer/issues)
+- [이슈 트래커](https://github.com/jolrinsaram/yolo-trainer-docker/issues)
 
 ---
 

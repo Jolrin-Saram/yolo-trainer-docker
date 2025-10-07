@@ -8,8 +8,8 @@ WORKDIR /app
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
 
-# GitHub repository URL (change this to your actual repository)
-ARG REPO_URL=https://github.com/yourusername/yolo-auto-trainer.git
+# GitHub repository URL
+ARG REPO_URL=https://github.com/Jolrin-Saram/yolo-trainer-docker.git
 ARG REPO_BRANCH=main
 
 # Install system dependencies

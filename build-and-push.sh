@@ -9,7 +9,7 @@ set -e
 DOCKER_USERNAME=${1:-"yourusername"}
 IMAGE_NAME="yolo-auto-trainer"
 VERSION=${2:-"latest"}
-REPO_URL=${REPO_URL:-"https://github.com/yourusername/yolo-auto-trainer.git"}
+REPO_URL=${REPO_URL:-"https://github.com/jolrinsaram/yolo-trainer-docker.git"}
 REPO_BRANCH=${REPO_BRANCH:-"main"}
 
 # 색상 출력
