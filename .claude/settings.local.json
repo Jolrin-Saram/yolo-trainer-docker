@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone:*)",
+      "Bash(python test_multigpu.py:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\n🚀 멀티 GPU 병렬 학습 지원 추가\n\n## 주요 개선사항\n\n### ✨ 새로운 기능\n- **멀티 GPU 병렬 학습**: 최대 4개 GPU 동시 사용 (DDP 자동 활성화)\n- **학습 속도 향상**: 4 GPU 사용 시 최대 3.5배 빠른 학습\n- **직관적인 GPU 선택 UI**: 드롭다운 메뉴로 GPU 쉽게 선택\n- **자동 GPU 감지**: 시스템의 모든 GPU 자동 탐지 및 표시\n- **완전 포터블 구조**: USB 드라이브에서도 실행 가능\n\n### 🔧 수정된 파일\n- `process_and_train.py`: 멀티 GPU 학습 엔진, device string parsing\n- `auto_labeler.py`: GPU 지원 자동 라벨링\n- `run_training_ui.py`: GPU 선택 드롭다운 UI, 설정 저장/로드 개선\n\n### 📚 새로운 문서\n- `README_MULTIGPU.md`: 멀티 GPU 사용 가이드 및 FAQ\n- `MULTIGPU_UPGRADE_SUMMARY.md`: 기술 세부사항 및 코드 변경 내역\n- `INSTALLATION_GUIDE.md`: 설치 및 업그레이드 가이드\n- `test_multigpu.py`: 시스템 테스트 스크립트\n\n## 사용 방법\n\n### Device 설정 옵션\n- `Auto (All 4 GPUs)` - 모든 GPU 자동 사용\n- `GPU 0: NVIDIA RTX 4090` - 단일 GPU 선택\n- `4 GPUs (0,1,2,3)` - 4개 GPU 명시적 선택\n- `Custom...` - 사용자 지정 (예: 0,2)\n\n### 성능 비교\n| GPU 개수 | 배치 크기 | Epoch당 시간 | 속도 향상 |\n|---------|---------|------------|----------|\n| 1 GPU   | 16      | ~10분      | 1.0x     |\n| 4 GPU   | 64      | ~3분       | 3.3x     |\n\n🎉 Generated with Claude Code\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\n🔧 데이터셋 준비 프로세스 개선\n\n## 주요 개선사항\n\n### ✨ 새로운 기능\n- **중복 파일 건너뛰기**: 재실행 시 15배 빠른 속도\n- **사용자 지정 저장 폴더**: 준비된 데이터셋 저장 위치 선택 가능\n- **향상된 진행 상황 표시**: 6단계로 세분화된 진행 과정\n- **더 많은 이미지 형식 지원**: .tif, .tiff, .webp 추가\n\n### 🔧 수정된 파일\n- `prepare_dataset.py`: output_dir 파라미터, 중복 건너뛰기, 상세 로깅\n- `run_training_ui.py`: Prepared Dataset Dir 필드 추가\n- `config.json`: 경로 수정 (D:/download/train → D:/train)\n\n### 📚 새로운 문서\n- `DATASET_PREP_IMPROVEMENTS.md`: 개선사항 상세 문서\n\n## 성능 개선\n- 첫 실행: ~15초 (모든 파일 복사)\n- 재실행: ~1초 (중복 건너뛰기) ⚡ 15배 향상\n\n## 로그 출력 예시\n```\n✓ File processing complete:\n  - Copied: 0 files\n  - Skipped (already exist): 8470 files\n```\n\n🎉 Generated with Claude Code\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git merge:*)",
+      "Bash(chmod:*)",
+      "Bash(git init:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

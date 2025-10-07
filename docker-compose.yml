@@ -1,0 +1,90 @@
+version: '3.8'
+
+services:
+  yolo-trainer:
+    # Pull from Docker Hub instead of building locally
+    image: ${DOCKER_IMAGE:-yourusername/yolo-auto-trainer:latest}
+    container_name: yolo-trainer
+
+    # GPU support - requires nvidia-docker2
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+    # Environment variables
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - DISPLAY=${DISPLAY:-:0}
+      - QT_X11_NO_MITSHM=1
+
+    # Volume mounts - persistent data storage
+    volumes:
+      # Data directories
+      - ./data:/app/data
+      - ./dataset_prepared:/app/dataset_prepared
+      - ./trained_models:/app/trained_models
+
+      # Config file
+      - ./config.json:/app/config.json
+
+      # Logs
+      - ./logs:/app/logs
+
+      # Optional: Mount custom datasets from host
+      - ${DATASET_PATH:-./datasets}:/datasets
+
+      # X11 socket for GUI support (Linux only)
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+
+    # Network mode for GUI (Linux)
+    network_mode: host
+
+    # Keep container running
+    stdin_open: true
+    tty: true
+
+    # Restart policy
+    restart: unless-stopped
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import torch; print(torch.cuda.is_available())"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Headless training service (no GUI)
+  yolo-trainer-headless:
+    # Pull from Docker Hub instead of building locally
+    image: ${DOCKER_IMAGE:-yourusername/yolo-auto-trainer:latest}
+    container_name: yolo-trainer-headless
+    profiles: ["headless"]
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+
+    volumes:
+      - ./data:/app/data
+      - ./dataset_prepared:/app/dataset_prepared
+      - ./trained_models:/app/trained_models
+      - ./config.json:/app/config.json
+      - ./logs:/app/logs
+      - ${DATASET_PATH:-./datasets}:/datasets
+
+    # Override command for headless operation
+    command: ["python3", "process_and_train.py"]
+
+    restart: unless-stopped
