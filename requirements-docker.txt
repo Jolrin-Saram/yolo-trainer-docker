@@ -1,0 +1,26 @@
+# Essential dependencies for Docker image
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+# Core ML/DL
+torch==2.5.1
+torchvision==0.20.1
+ultralytics==8.3.204
+
+# GUI
+PyQt5==5.15.11
+
+# Image processing
+opencv-python==4.9.0.80
+Pillow==11.3.0
+
+# Data processing
+numpy==1.26.4
+pandas==2.3.3
+PyYAML==6.0.3
+
+# Training utilities
+tensorboard==2.20.0
+tqdm==4.67.1
+
+# Other essentials
+requests==2.32.5
